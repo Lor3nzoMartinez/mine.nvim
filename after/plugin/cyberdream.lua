@@ -1,6 +1,6 @@
 require("cyberdream").setup({
     -- Enable transparent background
-    transparent = false,
+    transparent = true,
 
     -- Enable italics comments
     italic_comments = false,
@@ -51,13 +51,18 @@ require("cyberdream").setup({
 
     -- Disable or enable colorscheme extensions
     extensions = {
-        telescope = true,
+        telescope = false,
         notify = true,
         mini = true,
-        ...
     },
 })
 
-vim.cmd("colorscheme cyberdream")
+function LineNumberColors()
+    vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#00FF00', bold=false })
+    vim.api.nvim_set_hl(0, 'LineNr', { fg='#3fff2d', bold=false })
+    vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#00FF00', bold=false })
+end
 
+vim.cmd("colorscheme cyberdream")
+LineNumberColors()
 

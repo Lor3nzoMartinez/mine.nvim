@@ -1,2 +1,4 @@
 require("lorenzo.remap")
-print("hello form lorenzo")
+require("lorenzo.set")
+
+print("Config load: ✅")
