@@ -1,4 +1,4 @@
 require("lorenzo.remap")
 require("lorenzo.set")
 
-print("Config load: ✅")
+print("Config loading: ⏳")

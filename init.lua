@@ -1,2 +1,2 @@
 require("lorenzo")
-print("Config loading: ⏳")
+print("Config loaded: ✅")
