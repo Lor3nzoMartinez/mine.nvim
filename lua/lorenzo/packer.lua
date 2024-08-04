@@ -17,9 +17,23 @@ return require('packer').startup(function(use)
   use ('vim-airline/vim-airline') 
   use ('vim-airline/vim-airline-themes') 
 
-
   use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use ('theprimeagen/harpoon')
 
   use ('lewis6991/gitsigns.nvim')
+  use ('MunifTanjim/nui.nvim')
+
+
+  -- LSP Zero
+  use {'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/nvim-cmp'},
+    },
+  }
+
 end)
