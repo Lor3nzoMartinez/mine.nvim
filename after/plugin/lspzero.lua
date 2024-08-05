@@ -18,16 +18,18 @@ end
 lsp_zero.extend_lspconfig({
   sign_text = true,
   lsp_attach = lsp_attach,
-  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  capabilities = require('cmp_nvim_lsp').default_capabilities()
 })
 
--- servers you have installed in your system
---require('lspconfig').gleam.setup({})
---require('lspconfig').rust_analyzer.setup({})
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
+  }
+})
 
----
--- Autocompletion setup
----
 local cmp = require('cmp')
 
 cmp.setup({
