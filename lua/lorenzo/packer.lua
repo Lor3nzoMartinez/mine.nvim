@@ -14,15 +14,20 @@ return require('packer').startup(function(use)
   }
 
   use ('scottmckendry/cyberdream.nvim')
-  use ('vim-airline/vim-airline') 
-  use ('vim-airline/vim-airline-themes') 
+  use ('vim-airline/vim-airline')
+  use ('vim-airline/vim-airline-themes')
 
   use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use ('theprimeagen/harpoon')
 
   use ('lewis6991/gitsigns.nvim')
-  use ('MunifTanjim/nui.nvim')
 
+  -- use {'folke/noice.nvim',
+  --  requires = {
+  --    {'MunifTanjin/nui.nvim'},
+  --    {'rcarriga/nvim-notify'},
+  --  }
+  -- }
 
   -- LSP Zero
   use {'VonHeikemen/lsp-zero.nvim',
