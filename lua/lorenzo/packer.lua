@@ -9,8 +9,11 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+	  'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+	  requires = {
+      {'nvim-lua/plenary.nvim'}
+    },
   }
 
   use ('scottmckendry/cyberdream.nvim')
@@ -30,7 +33,9 @@ return require('packer').startup(function(use)
   -- }
 
   -- LSP Zero
-  use {'VonHeikemen/lsp-zero.nvim',
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
@@ -38,6 +43,7 @@ return require('packer').startup(function(use)
       {'williamboman/mason-lspconfig.nvim'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/nvim-cmp'},
+      {'L3MON4D3/LuaSnip'},
     },
   }
 
