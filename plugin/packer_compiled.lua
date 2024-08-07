@@ -144,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  undotree = {
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
   ["vim-airline"] = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/vim-airline",
