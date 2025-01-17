@@ -71,4 +71,5 @@ return require('packer').startup(function(use)
        javascript = {'eslint'},
       }
     end
+  }
 end)
