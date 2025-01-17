@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- Rubocop
   use {
    'dense-analysis',
    config = function()
