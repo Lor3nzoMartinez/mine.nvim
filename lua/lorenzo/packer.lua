@@ -26,16 +26,51 @@ return require('packer').startup(function(use)
 
   use ('lewis6991/gitsigns.nvim')
 
-  -- use {'folke/noice.nvim',
-  --  requires = {
-  --    {'MunifTanjin/nui.nvim'},
-  --    {'rcarriga/nvim-notify'},
-  --  }
-  -- }
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'rcarriga/nvim-notify',
+    },
+    config = function()
+      require("noice").setup({
+        -- custom config
+      })
+    end
+  }
+
+ use {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = 'cyberdream',
+          section_seperators = '',
+          component_seperators = '',
+          icons_enabled = true,
+        },
+        requires = {
+          'nvim-tree/nvim-web-devicons',
+        },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'filetype' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' },
+        },
+      })
+    end
+  }
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
+    opt = {
+      open_on_setup = false
+    },
     requires = { 
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -46,7 +81,7 @@ return require('packer').startup(function(use)
       require("neo-tree").setup({
         filesystem = {
           filtered_items = {
-            visible = false, -- show hidden files
+            visible = true, -- show hidden files
           },
         },
       })
@@ -68,6 +103,7 @@ return require('packer').startup(function(use)
     },
   }
 
+  -- Help with motions
   use {
     "tris203/precognition.nvim",
     -- event = "VeryLazy",
