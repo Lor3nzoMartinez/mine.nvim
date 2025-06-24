@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
+  use 'tpope/vim-fugitive'
 
   use {
 	  'nvim-telescope/telescope.nvim',
@@ -16,7 +17,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  use ('scottmckendry/cyberdream.nvim')
   use ('vim-airline/vim-airline')
   use ('vim-airline/vim-airline-themes')
 
@@ -34,35 +34,13 @@ return require('packer').startup(function(use)
       'rcarriga/nvim-notify',
     },
     config = function()
-      require("noice").setup({
-        -- custom config
-      })
+      require("noice").setup({})
     end
   }
 
- use {
+  use {
     'nvim-lualine/lualine.nvim',
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = 'cyberdream',
-          section_seperators = '',
-          component_seperators = '',
-          icons_enabled = true,
-        },
-        requires = {
-          'nvim-tree/nvim-web-devicons',
-        },
-        sections = {
-          lualine_a = { 'mode' },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filename' },
-          lualine_x = { 'filetype' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' },
-        },
-      })
-    end
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
 
   use {
@@ -101,34 +79,10 @@ return require('packer').startup(function(use)
   }
 
   -- Help with motions
-  use {
+  use({
     "tris203/precognition.nvim",
-    -- event = "VeryLazy",
-    opts = {
-      startVisible = true,
-      showBlankVirtLine = true,
-      highlightColor = { link = "Comment" },
-      hints = {
-        Caret = { text = "^", prio = 2 },
-        Dollar = { text = "$", prio = 1 },
-        MatchingPair = { text = "%", prio = 5 },
-        Zero = { text = "0", prio = 1 },
-        w = { text = "w", prio = 10 },
-        b = { text = "b", prio = 9 },
-        e = { text = "e", prio = 8 },
-        W = { text = "W", prio = 7 },
-        B = { text = "B", prio = 6 },
-        E = { text = "E", prio = 5 },
-      },
-      gutterHints = {
-        G = { text = "G", prio = 10 },
-        gg = { text = "gg", prio = 9 },
-        PrevParagraph = { text = "{", prio = 8 },
-        NextParagraph = { text = "}", prio = 8 },
-      },
-      disabled_fts = {
-        "startify",
-      },
-    },
-  }
+    config = function()
+      require("precognition").setup()
+    end
+  })
 end)
