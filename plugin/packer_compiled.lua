@@ -105,7 +105,7 @@ _G.packer_plugins = {
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
-    config = { "\27LJ\2\n‚\4\0\0\5\0\22\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\0035\4\17\0=\4\18\0035\4\19\0=\4\20\3=\3\21\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\2\0\0\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\4\0\0\vbranch\tdiff\16diagnostics\14lualine_a\1\0\6\14lualine_y\0\14lualine_a\0\14lualine_z\0\14lualine_b\0\14lualine_c\0\14lualine_x\0\1\2\0\0\tmode\rrequires\1\2\0\0 nvim-tree/nvim-web-devicons\foptions\1\0\3\rsections\0\foptions\0\rrequires\0\1\0\4\18icons_enabled\2\23section_seperators\5\25component_seperators\5\ntheme\15cyberdream\nsetup\flualine\frequire\0" },
+    config = { "\27LJ\2\n‚\4\0\0\5\0\22\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\0035\4\17\0=\4\18\0035\4\19\0=\4\20\3=\3\21\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\2\0\0\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\4\0\0\vbranch\tdiff\16diagnostics\14lualine_a\1\0\6\14lualine_b\0\14lualine_c\0\14lualine_x\0\14lualine_y\0\14lualine_a\0\14lualine_z\0\1\2\0\0\tmode\rrequires\1\2\0\0 nvim-tree/nvim-web-devicons\foptions\1\0\3\rsections\0\foptions\0\rrequires\0\1\0\4\23section_seperators\5\25component_seperators\5\ntheme\15cyberdream\18icons_enabled\2\nsetup\flualine\frequire\0" },
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
@@ -121,11 +121,9 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["neo-tree.nvim"] = {
-    after = { "nvim-web-devicons" },
     config = { "\27LJ\2\n’\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\15filesystem\1\0\1\15filesystem\0\19filtered_items\1\0\1\19filtered_items\0\1\0\1\fvisible\2\nsetup\rneo-tree\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/opt/neo-tree.nvim",
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["noice.nvim"] = {
@@ -160,12 +158,8 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
-    load_after = {
-      ["neo-tree.nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
@@ -208,8 +202,12 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n‚\4\0\0\5\0\22\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\0035\4\17\0=\4\18\0035\4\19\0=\4\20\3=\3\21\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\2\0\0\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\4\0\0\vbranch\tdiff\16diagnostics\14lualine_a\1\0\6\14lualine_y\0\14lualine_a\0\14lualine_z\0\14lualine_b\0\14lualine_c\0\14lualine_x\0\1\2\0\0\tmode\rrequires\1\2\0\0 nvim-tree/nvim-web-devicons\foptions\1\0\3\rsections\0\foptions\0\rrequires\0\1\0\4\18icons_enabled\2\23section_seperators\5\25component_seperators\5\ntheme\15cyberdream\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+try_loadstring("\27LJ\2\n‚\4\0\0\5\0\22\0\0256\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\0025\3\t\0005\4\b\0=\4\n\0035\4\v\0=\4\f\0035\4\r\0=\4\14\0035\4\15\0=\4\16\0035\4\17\0=\4\18\0035\4\19\0=\4\20\3=\3\21\2B\0\2\1K\0\1\0\rsections\14lualine_z\1\2\0\0\rlocation\14lualine_y\1\2\0\0\rprogress\14lualine_x\1\2\0\0\rfiletype\14lualine_c\1\2\0\0\rfilename\14lualine_b\1\4\0\0\vbranch\tdiff\16diagnostics\14lualine_a\1\0\6\14lualine_b\0\14lualine_c\0\14lualine_x\0\14lualine_y\0\14lualine_a\0\14lualine_z\0\1\2\0\0\tmode\rrequires\1\2\0\0 nvim-tree/nvim-web-devicons\foptions\1\0\3\rsections\0\foptions\0\rrequires\0\1\0\4\23section_seperators\5\25component_seperators\5\ntheme\15cyberdream\18icons_enabled\2\nsetup\flualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: neo-tree.nvim
+time([[Config for neo-tree.nvim]], true)
+try_loadstring("\27LJ\2\n’\1\0\0\5\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\4\0005\4\3\0=\4\5\3=\3\a\2B\0\2\1K\0\1\0\15filesystem\1\0\1\15filesystem\0\19filtered_items\1\0\1\19filtered_items\0\1\0\1\fvisible\2\nsetup\rneo-tree\frequire\0", "config", "neo-tree.nvim")
+time([[Config for neo-tree.nvim]], false)
 -- Config for: noice.nvim
 time([[Config for noice.nvim]], true)
 try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\nnoice\frequire\0", "config", "noice.nvim")
