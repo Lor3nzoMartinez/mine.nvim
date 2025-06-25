@@ -6,9 +6,35 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  -- use 'nvim-lua/plenary.nvim'
-  -- use 'tpope/vim-fugitive'
   use 'scottmckendry/cyberdream.nvim'
+  use 'rcarriga/nvim-notify'
+  use 'theprimeagen/harpoon'
+  use 'lewis6991/gitsigns.nvim'
+
+  use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  -- Help with motions
+  use({
+    "tris203/precognition.nvim",
+    config = function()
+      require("precognition").setup()
+    end
+  })
+
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("noice").setup({})
+    end
+  }
 
   use {
 	  'nvim-telescope/telescope.nvim',
@@ -18,9 +44,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- use ('mbbill/undotree')
-  use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  
   use {
     "nvim-treesitter/nvim-treesitter-context",
     requires = { "nvim-treesitter/nvim-treesitter" },
@@ -31,34 +54,11 @@ return require('packer').startup(function(use)
       }
     end
   }
-  use ('theprimeagen/harpoon')
-
-  use ('lewis6991/gitsigns.nvim')
-
-  use {
-    'folke/noice.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-      -- 'nvim-lua/plenary.nvim',
-      'rcarriga/nvim-notify',
-    },
-    config = function()
-      require("noice").setup({})
-    end
-  }
-
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = 'v3.x',
     requires = { 
-      -- "nvim-lua/plenary.nvim",
-      -- "nvim-tree/nvim-web-devicons",
-      -- "MunifTanjim/nui.nvim",
       "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
@@ -86,12 +86,4 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},
     },
   }
-
-  -- Help with motions
-  use({
-    "tris203/precognition.nvim",
-    config = function()
-      require("precognition").setup()
-    end
-  })
 end)
