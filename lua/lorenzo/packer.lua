@@ -6,8 +6,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'tpope/vim-fugitive'
+  -- use 'nvim-lua/plenary.nvim'
+  -- use 'tpope/vim-fugitive'
   use 'scottmckendry/cyberdream.nvim'
 
   use {
@@ -18,8 +18,19 @@ return require('packer').startup(function(use)
     },
   }
 
-  use ('mbbill/undotree')
+  -- use ('mbbill/undotree')
   use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  
+  use {
+    "nvim-treesitter/nvim-treesitter-context",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesitter-context").setup {
+        max_lines = 3, -- show up to 3 lines of context
+        multiline_threshold = 20,
+      }
+    end
+  }
   use ('theprimeagen/harpoon')
 
   use ('lewis6991/gitsigns.nvim')
@@ -28,7 +39,7 @@ return require('packer').startup(function(use)
     'folke/noice.nvim',
     requires = {
       'MunifTanjim/nui.nvim',
-      'nvim-lua/plenary.nvim',
+      -- 'nvim-lua/plenary.nvim',
       'rcarriga/nvim-notify',
     },
     config = function()
@@ -45,10 +56,10 @@ return require('packer').startup(function(use)
     "nvim-neo-tree/neo-tree.nvim",
     branch = 'v3.x',
     requires = { 
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      -- "nvim-lua/plenary.nvim",
+      -- "nvim-tree/nvim-web-devicons",
+      -- "MunifTanjim/nui.nvim",
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
       require("neo-tree").setup({
