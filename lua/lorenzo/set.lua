@@ -3,6 +3,7 @@ vim.opt.nu = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
+vim.o.guicursor = "n-v-c:hor110"
 
 vim.opt.expandtab = true
 
