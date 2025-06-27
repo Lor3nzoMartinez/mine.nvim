@@ -1,8 +1,10 @@
-local custom_theme = require("lualine.themes.everforest")
+local custom_theme = require("lualine.themes.codedark")
+
 custom_theme.normal.c.bg = "none"
 custom_theme.insert.c.bg = "none"
-custom_theme.visual.c.bg = "none"
-custom_theme.inactive.c.bg = "none"
+custom_theme.inactive.a.bg = "#5fff00"
+custom_theme.inactive.a.fg = "#d70087"
+
 
 require('lualine').setup {
   options = {
@@ -46,15 +48,17 @@ require('lualine').setup {
     lualine_z = {'location'}
   },
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = {'filename'},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_c = {},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {}
+  extensions = {
+    'neo-tree',
+  }
 }

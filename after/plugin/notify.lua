@@ -9,10 +9,10 @@ notify.setup({
   top_down = true,              -- set to false to show newest at bottom
 })
 
+-- Set as default notifier
+vim.notify = notify
+
 vim.notify = function(msg, level, opts)
   if type(opts) ~= "table" then opts = {} end
   notify(msg, level, opts)
 end
-
--- Set as default notifier
-vim.notify = notify

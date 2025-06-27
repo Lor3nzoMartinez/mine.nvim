@@ -68,6 +68,18 @@ return require('packer').startup(function(use)
             visible = true, -- show hidden files
           },
         },
+        window = {
+          mappings = {
+            ["P"] = {
+              "toggle_preview",
+              config = {
+                use_float = false,
+                use_image_nvim = true,
+                title = "Neo-tree Preview",
+              }
+            }
+          }
+        }
       })
     end
   }
