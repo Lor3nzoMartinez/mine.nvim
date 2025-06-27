@@ -13,6 +13,8 @@ local lsp_attach = function(client, bufnr)
   vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 end
 
+local lsp_zero = require('lsp-zero')
+
 lsp_zero.extend_lspconfig({
   sign_text = true,
   lsp_attach = lsp_attach,

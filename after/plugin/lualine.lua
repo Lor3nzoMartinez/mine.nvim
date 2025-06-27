@@ -2,9 +2,6 @@ local custom_theme = require("lualine.themes.codedark")
 
 custom_theme.normal.c.bg = "none"
 custom_theme.insert.c.bg = "none"
-custom_theme.inactive.a.bg = "#5fff00"
-custom_theme.inactive.a.fg = "#d70087"
-
 
 require('lualine').setup {
   options = {
