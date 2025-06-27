@@ -1,7 +1,13 @@
+local custom_theme = require("lualine.themes.everforest")
+custom_theme.normal.c.bg = "none"
+custom_theme.insert.c.bg = "none"
+custom_theme.visual.c.bg = "none"
+custom_theme.inactive.c.bg = "none"
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'ayu_dark',
+    theme = custom_theme,
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
