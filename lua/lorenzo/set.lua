@@ -18,3 +18,6 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 25
+
+-- Co-pilot node directory for work env
+-- vim.g.copilot_node_command = '~/.nvm/versions/node/v24.3.0/bin/node'

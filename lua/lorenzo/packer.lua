@@ -7,12 +7,41 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'scottmckendry/cyberdream.nvim'
-  use 'rcarriga/nvim-notify'
   use 'theprimeagen/harpoon'
   use 'lewis6991/gitsigns.nvim'
+  use 'github/copilot.vim'
 
+  -- Tree sitter
   use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
+  use {
+    "nvim-treesitter/nvim-treesitter-context",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesitter-context").setup {
+        max_lines = 3, -- show up to 3 lines of context
+        multiline_threshold = 20,
+      }
+    end
+  }
+
+  -- Noice with notify
+  use {
+    'rcarriga/nvim-notify',
+    tag = 'v3.14.0',
+  }
+
+  use {
+    'folke/noice.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require("noice").setup({})
+    end
+  }
+
+  -- Lua-line with custom theme
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -26,16 +55,7 @@ return require('packer').startup(function(use)
     end
   })
 
-  use {
-    'folke/noice.nvim',
-    requires = {
-      'MunifTanjim/nui.nvim',
-    },
-    config = function()
-      require("noice").setup({})
-    end
-  }
-
+  -- Telescope
   use {
 	  'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -44,17 +64,7 @@ return require('packer').startup(function(use)
     },
   }
 
-  use {
-    "nvim-treesitter/nvim-treesitter-context",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("treesitter-context").setup {
-        max_lines = 3, -- show up to 3 lines of context
-        multiline_threshold = 20,
-      }
-    end
-  }
-
+  -- Neo-tree craziness
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = 'v3.x',
