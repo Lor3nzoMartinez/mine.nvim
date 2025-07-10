@@ -80,7 +80,7 @@ return require('packer').startup(function(use)
 	  'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
 	  requires = {
-      {'nvim-lua/plenary.nvim'}
+      'nvim-lua/plenary.nvim',
     },
   }
 
@@ -89,27 +89,33 @@ return require('packer').startup(function(use)
     "nvim-neo-tree/neo-tree.nvim",
     branch = 'v3.x',
     requires = { 
-      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      'saifulapm/neotree-file-nesting-config', -- add plugin as dependency. no need any other config or setup call
     },
     config = function()
       require("neo-tree").setup({
-        filesystem = {
-          filtered_items = {
-            visible = true, -- show hidden files
+        nesting_rules = require('neotree-file-nesting-config').nesting_rules,
+        hide_root_node = true,
+        retain_hidden_root_indent = true,
+        default_component_configs = {
+          indent = {
+            with_expanders = true,
+            expander_collapsed = '',
+            expander_expanded = '',
           },
         },
-        window = {
-          mappings = {
-            ["P"] = {
-              "toggle_preview",
-              config = {
-                use_float = false,
-                use_image_nvim = true,
-                title = "Neo-tree Preview",
-              }
-            }
-          }
-        }
+        filesystem = {
+          follow_current_file = {
+            enabled = true,
+            leave_dirs_open = false,
+          },
+          filtered_items = {
+            show_hidden_count = false,
+            never_show = {
+              '.DS_Store',
+            },
+          },
+          hijack_netrw_behavior = "open_current",
+        },
       })
     end
   }
