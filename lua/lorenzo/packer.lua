@@ -93,6 +93,16 @@ return require('packer').startup(function(use)
     },
     config = function()
       require("neo-tree").setup({
+        sources = {
+          "filesystem",
+          "buffers",
+          "git_status",
+        },
+        buffers = {
+          show_unloaded = true,
+          group_empty_dirs = false,
+          follow_current_file = true,
+        },
         nesting_rules = require('neotree-file-nesting-config').nesting_rules,
         hide_root_node = true,
         retain_hidden_root_indent = true,
