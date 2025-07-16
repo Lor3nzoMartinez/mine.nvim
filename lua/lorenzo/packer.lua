@@ -124,7 +124,7 @@ return require('packer').startup(function(use)
               '.DS_Store',
             },
           },
-          hijack_netrw_behavior = "open_current",
+          hijack_netrw_behavior = "disabled",
         },
       })
     end
