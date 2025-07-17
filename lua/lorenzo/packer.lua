@@ -119,6 +119,10 @@ return require('packer').startup(function(use)
             leave_dirs_open = false,
           },
           filtered_items = {
+            visible = true,
+            show_hidden_count = true,
+            hide_dotfiles = false,
+            hide_gitignored = false,
             show_hidden_count = false,
             never_show = {
               '.DS_Store',
@@ -143,5 +147,34 @@ return require('packer').startup(function(use)
       {'hrsh7th/nvim-cmp'},
       {'L3MON4D3/LuaSnip'},
     },
+  }
+
+  -- blink auto-complete
+  use {
+    'saghen/blink.cmp',
+    after = 'nvim-cmp',
+    requires = {
+      'rafamadriz/friendly-snippets',
+    },
+    tag = '1.*',
+    config = function()
+      require('blink.cmp').setup({
+        keymap = { preset = 'default' },
+        appearance = {
+          nerd_font_variant = 'mono',
+        },
+        completion = {
+          documentation = {
+            auto_show = false,
+          },
+        },
+        sources = {
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+        fuzzy = {
+          implementation = "prefer_rust_with_warning",
+        },
+      })
+    end
   }
 end)

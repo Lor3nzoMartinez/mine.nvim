@@ -1,2 +1,5 @@
 # compiled plugins file
-plugin/
+/plugin/
+
+!/after/plugin
+
