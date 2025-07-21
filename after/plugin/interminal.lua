@@ -54,4 +54,4 @@ local toggle_terminal = function()
 end
 
 vim.api.nvim_create_user_command("Interminal", toggle_terminal, {})
-vim.keymap.set({ "n", "t" }, "<leader>t", toggle_terminal)
+vim.keymap.set({ "n", "t" }, "<F5>", toggle_terminal)

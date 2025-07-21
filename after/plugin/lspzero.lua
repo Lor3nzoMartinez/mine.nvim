@@ -15,31 +15,16 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'lua_ls',
-    'rust_analyzer',
-    'pyright',
-    'solargraph',
-  },
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({})
-    end,
-  }
-})
-
-local capabilities = {
-  textDocument = {
-    foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true
-    }
-  }
-}
-
-capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+-- local capabilities = {
+--   textDocument = {
+--     foldingRange = {
+--       dynamicRegistration = false,
+--       lineFoldingOnly = true
+--     }
+--   }
+-- }
+--
+-- capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
 local cmp = require('cmp')
 

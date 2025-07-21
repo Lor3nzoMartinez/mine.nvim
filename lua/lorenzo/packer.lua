@@ -101,7 +101,10 @@ return require('packer').startup(function(use)
         buffers = {
           show_unloaded = true,
           group_empty_dirs = false,
-          follow_current_file = true,
+          follow_current_file = {
+            enabled = true,
+            leave_dirs_open = false,
+          },
         },
         nesting_rules = require('neotree-file-nesting-config').nesting_rules,
         hide_root_node = true,
@@ -141,40 +144,72 @@ return require('packer').startup(function(use)
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
       {'hrsh7th/cmp-nvim-lsp'},
       {'hrsh7th/nvim-cmp'},
       {'L3MON4D3/LuaSnip'},
     },
   }
 
-  -- blink auto-complete
-  use {
-    'saghen/blink.cmp',
-    after = 'nvim-cmp',
-    requires = {
-      'rafamadriz/friendly-snippets',
-    },
-    tag = '1.*',
+  use{
+    'williamboman/mason-lspconfig.nvim',
+    tag = 'v1.32.0',
+    requires = { 'williamboman/mason.nvim' },
     config = function()
-      require('blink.cmp').setup({
-        keymap = { preset = 'default' },
-        appearance = {
-          nerd_font_variant = 'mono',
-        },
-        completion = {
-          documentation = {
-            auto_show = false,
+      require('mason').setup({
+        ui = {
+          border = 'rounded',
+          icons = {
+            package_installed = '',
+            package_pending = '',
+            package_uninstalled = '',
           },
         },
-        sources = {
-          default = { 'lsp', 'path', 'snippets', 'buffer' },
+      })
+      require('mason-lspconfig').setup({
+        ensure_installed = {
+          'lua_ls',
+          'rust_analyzer',
+          'pyright',
+          'ruby_lsp',
+          'eslint',
         },
-        fuzzy = {
-          implementation = "prefer_rust_with_warning",
-        },
+        automatic_installation = true,
+        handlers = {
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+        }
       })
     end
   }
+
+
+  -- blink auto-complete
+  -- use {
+  --   'saghen/blink.cmp',
+  --   after = 'nvim-cmp',
+  --   requires = {
+  --     'rafamadriz/friendly-snippets',
+  --   },
+  --   tag = '1.*',
+  --   config = function()
+  --     require('blink.cmp').setup({
+  --       keymap = { preset = 'default' },
+  --       appearance = {
+  --         nerd_font_variant = 'mono',
+  --       },
+  --       completion = {
+  --         documentation = {
+  --           auto_show = false,
+  --         },
+  --       },
+  --       sources = {
+  --         default = { 'lsp', 'path', 'snippets', 'buffer' },
+  --       },
+  --       fuzzy = {
+  --         implementation = "prefer_rust_with_warning",
+  --       },
+  --     })
+  --   end
+  -- }
 end)
