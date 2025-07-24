@@ -13,8 +13,8 @@ return require('packer').startup(function(use)
 
   -- git conflict tools
   use {
-    'akinsho/git-conflict.nvim', 
-    tag = "*", 
+    'akinsho/git-conflict.nvim',
+    tag = "*",
     config = function()
       require('git-conflict').setup({
         default_mappings = true,
@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   }
 
   -- Tree sitter
-  use ('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
   use {
     "nvim-treesitter/nvim-treesitter-context",
@@ -77,18 +77,30 @@ return require('packer').startup(function(use)
 
   -- Telescope
   use {
-	  'nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
-	  requires = {
+    requires = {
       'nvim-lua/plenary.nvim',
     },
+  }
+
+  -- Flash.nvim for search and jump
+  use {
+    "folke/flash.nvim",
+    config = function()
+      require("flash").setup({}) -- pass options here if needed
+
+      vim.keymap.set({ "n", "x", "o" }, "s", function()
+        return require("flash").jump({ search = { mode = "<c-f>" } })
+      end, { desc = "Flash", noremap = true, silent = true })
+    end,
   }
 
   -- Neo-tree craziness
   use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = 'v3.x',
-    requires = { 
+    requires = {
       'saifulapm/neotree-file-nesting-config', -- add plugin as dependency. no need any other config or setup call
     },
     config = function()
@@ -123,7 +135,6 @@ return require('packer').startup(function(use)
           },
           filtered_items = {
             visible = true,
-            show_hidden_count = true,
             hide_dotfiles = false,
             hide_gitignored = false,
             show_hidden_count = false,
@@ -143,14 +154,14 @@ return require('packer').startup(function(use)
     branch = 'v3.x',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/nvim-cmp'},
-      {'L3MON4D3/LuaSnip'},
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/nvim-cmp' },
+      { 'L3MON4D3/LuaSnip' },
     },
   }
 
-  use{
+  use {
     'williamboman/mason-lspconfig.nvim',
     tag = 'v1.32.0',
     requires = { 'williamboman/mason.nvim' },
@@ -170,7 +181,6 @@ return require('packer').startup(function(use)
           'lua_ls',
           'rust_analyzer',
           'pyright',
-          'ruby_lsp',
           'eslint',
         },
         automatic_installation = true,
